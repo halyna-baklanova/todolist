@@ -11,35 +11,39 @@
 
   <div class="task-list">
     {% for task in task_list %}
-      <div class="task-item mb-4 p-3 rounded">
-        <h4>{{ task }}</h4>
-        <p>
-          {% if task.done %}
-            <strong>Done</strong>
-            <a href="{% url 'todolist:task-done' pk=task.id %}" class="btn btn-secondary link-to-page mr-2">
-              Undo
-            </a>
-          {% else %}
-            Not done
-            <a href="{% url 'todolist:task-done' pk=task.id %}" class="btn btn-secondary link-to-page mr-2">
-              Complete
-            </a>
-          {% endif %}
 
-        </p>
+      <div class="task-item mb-4 p-3 rounded">
+        <div class="d-flex justify-content-between">
+    <span class="bold-black-text mr-2">{{ task }}</span>
+    {% if task.done %}
+        <span class="bold-green-text">Done</span>
+        <a href="{% url 'todolist:task-done' pk=task.id %}" class="btn btn-secondary link-to-page ml-auto">
+            Undo
+        </a>
+    {% else %}
+        <span class="bold-red-text">Not Done</span>
+        <a href="{% url 'todolist:task-done' pk=task.id %}" class="btn btn-success link-to-page ml-auto">
+            Complete
+        </a>
+    {% endif %}
+</div>
+
+      
         <p>
           <strong>Created:</strong> {{ task.datetime }}<br>
-          <strong>Tags:</strong>  {% for tag in task.tags.all %}
-          {{ tag.name }}
-        {% endfor %}
-        </p>
+
         <div class="task-actions">
-          <a href="{% url 'todolist:task-update' pk=task.id %}" class="btn btn-secondary link-to-page mr-2">
-            Update
-          </a>
-          <a href="{% url 'todolist:task-delete' pk=task.id %}" class="btn btn-danger link-to-page">
-            Delete
-          </a>
+
+          <div class="task-tags">
+            Tags:
+            {% for tag in task.tags.all %}
+              <span class="tag-name">{{ tag.name }}</span>
+            {% endfor %}
+          </div>
+
+          <a href="{% url 'todolist:task-update' pk=task.id %}" class="btn btn-link">Update</a>
+          <a href="{% url 'todolist:task-delete' pk=task.id %}" class="btn btn-link">Delete</a>
+
         </div>
         <hr>
       </div>
@@ -47,5 +51,6 @@
       <p>No tasks available.</p>
     {% endfor %}
   </div>
+
 {% endblock %}
 
