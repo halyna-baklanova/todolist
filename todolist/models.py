@@ -15,6 +15,8 @@ class Task(models.Model):
     done = models.BooleanField(default=False)
     tags = models.ManyToManyField("Tag", related_name="tasks")
 
+    class Meta:
+        ordering = ["done", "datetime"]
 
     def __str__(self):
         return self.content
