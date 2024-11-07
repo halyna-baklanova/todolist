@@ -30,6 +30,19 @@ class TaskDeleteView(generic.DeleteView):
     fields = "__all__"
     success_url = reverse_lazy("todolist:index")
 
+class TaskDoneView(generic.TemplateView):
+    model = Task
+    fields = "done"
+    success_url = reverse_lazy("todolist:index")
+    template_name = "todolist/task_done.html"
+
+    def get_object(self, queryset=None):
+        task = super().get_object(queryset)
+        task.is_done = not task.is_done
+        task.save()
+        return task
+
+
 class TagListView(generic.ListView):
     model = Tag
 

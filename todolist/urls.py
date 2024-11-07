@@ -5,7 +5,8 @@ from .views import (
     TagListView,
     TaskCreateView,
     TaskUpdateView,
-    TaskDeleteView
+    TaskDeleteView,
+    TaskDoneView,
 )
 
 urlpatterns = [
@@ -26,6 +27,10 @@ urlpatterns = [
         TaskDeleteView.as_view(),
         name="task-delete"
     ),
+    path('task/done/<int:task_id>/',
+         TaskDoneView.as_view(),
+         name='task-done'
+         )
 
 ]
 
