@@ -16,13 +16,13 @@
         <p>
           {% if task.done %}
             <strong>Done</strong>
-            <a href="{% url 'todolist:task-done' task.id %}" class="btn btn-secondary link-to-page mr-2">
-              Complete
+            <a href="{% url 'todolist:task-done' pk=task.id %}" class="btn btn-secondary link-to-page mr-2">
+              Undo
             </a>
           {% else %}
             Not done
-            <a href="{% url 'todolist:task-done' task.id %}" class="btn btn-secondary link-to-page mr-2">
-              Undo
+            <a href="{% url 'todolist:task-done' pk=task.id %}" class="btn btn-secondary link-to-page mr-2">
+              Complete
             </a>
           {% endif %}
 

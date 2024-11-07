@@ -27,7 +27,7 @@ urlpatterns = [
         TaskDeleteView.as_view(),
         name="task-delete"
     ),
-    path('task/done/<int:task_id>/',
+    path('task/done/<int:pk>/',
          TaskDoneView.as_view(),
          name='task-done'
          )
