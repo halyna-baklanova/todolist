@@ -10,6 +10,7 @@ def index(request):
     task_list = Task.objects.all()
     return render(request, "todolist/index.html", {"task_list": task_list})
 
+
 class TaskDetailView(generic.DetailView):
     model = Task
 

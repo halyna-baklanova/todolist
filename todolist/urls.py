@@ -29,11 +29,16 @@ urlpatterns = [
         TaskDeleteView.as_view(),
         name="task-delete"
     ),
-    path('task/done/<int:pk>/',
-         TaskDoneView.as_view(),
-         name='task-done'
+    path(
+        "task/done/<int:pk>/",
+        TaskDoneView.as_view(),
+        name="task-done"
          ),
-path("tags/", TagListView.as_view(), name="tags"),
+    path(
+        "tags/",
+        TagListView.as_view(),
+        name="tags"
+    ),
     path(
         "tag/create/",
         TagCreateView.as_view(),
@@ -49,7 +54,6 @@ path("tags/", TagListView.as_view(), name="tags"),
         TagDeleteView.as_view(),
         name="tag-delete"
     ),
-
 ]
 
 app_name = "todolist"
