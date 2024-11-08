@@ -1,0 +1,30 @@
+.task-tags {
+    display: inline-block;
+}
+
+.tag-name {
+    color: gray;  /* Сірий колір для тексту тегів */
+    margin-right: 5px;  /* Додаємо відступ між тегами */
+}
+
+.btn {
+    display: inline-block;  /* Це дозволяє кнопкам бути на одному рядку */
+    margin-left: 10px;  /* Додаємо відступ між кнопками */
+}
+
+.bold-red-text {
+    color: red;       /* Червоний колір */
+    font-weight: bold; /* Жирний шрифт */
+}
+
+.bold-green-text {
+    color: green;       /* Червоний колір */
+    font-weight: bold; /* Жирний шрифт */
+}
+
+.bold-black-text {
+    color: black;       /* Червоний колір */
+    font-weight: bolder; /* Жирний шрифт */
+    font-size: 20px;
+}
+
